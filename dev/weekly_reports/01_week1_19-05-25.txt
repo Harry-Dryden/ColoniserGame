@@ -1,0 +1,9 @@
+#Week 1
+author:Harry Dryden
+date:21/05/25
+============
+Week Actions:
+Action: Project SetUp
+I created the project on GitHub and cloned it to VisualStudio. 
+I created two word documents, Project_Aims and Design_Document in order to clearly establish the aims and development of the project.
+============
