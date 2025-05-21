@@ -6,27 +6,27 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: CMAKE_TRY_COMPILE
-# Configurations: 
+# Project: CGame
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
 #############################################
-# Rule for compiling C files.
+# Rule for compiling CXX files.
 
-rule C_COMPILER__cmTC_e4dbb_unscanned_
+rule CXX_COMPILER__CGame_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -o $out -c $in
-  description = Building C object $out
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
 
 
 #############################################
-# Rule for linking C executable.
+# Rule for linking CXX executable.
 
-rule C_EXECUTABLE_LINKER__cmTC_e4dbb_
-  command = $PRE_LINK && /usr/bin/cc $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking C executable $TARGET_FILE
+rule CXX_EXECUTABLE_LINKER__CGame_Debug
+  command = $PRE_LINK && /usr/bin/c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
 
@@ -36,6 +36,15 @@ rule C_EXECUTABLE_LINKER__cmTC_e4dbb_
 rule CUSTOM_COMMAND
   command = $COMMAND
   description = $DESC
+
+
+#############################################
+# Rule for re-running cmake.
+
+rule RERUN_CMAKE
+  command = /cygdrive/c/Users/Bland/AppData/Local/JetBrains/CLion2024.2/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S/cygdrive/c/Users/Bland/CLionProjects/CGame -B/cygdrive/c/Users/Bland/CLionProjects/CGame/cmake-build-debug
+  description = Re-running CMake...
+  generator = 1
 
 
 #############################################
