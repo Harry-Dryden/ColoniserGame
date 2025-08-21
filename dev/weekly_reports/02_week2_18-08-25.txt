@@ -1,0 +1,11 @@
+# Week 2
+author:Harry Dryden
+date:20/08/25
+============
+Week Actions:
+Action: Draft 1
+Coded an initial draft for the game as a prototype, giving me an idea of where I want to go with the project
+Action: Writing the Design document
+Started the Design document, basing it off my initial prototype and starting to plan a second draft as well as my initial ideas for a final product
+I also added a bit more to the project aims, although for now this is a simple document as my aims are quite simple
+============
