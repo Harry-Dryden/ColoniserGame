@@ -4,10 +4,10 @@
 using namespace std;
 
 Province::Province(string nm, int stren, int val)
-    : name(nm), colonised(false), strength(stren), economicVal(val), owner("None"){}
+    : name(nm), colonised(false), strength(stren), economicVal(val), owner(nullptr){}
 
 void Province::displayInfo(){
-    cout << "Province"<<name
+    cout << "Province: "<<name
          << " | Strength: " << strength
          << " | Value: " << economicVal
          << " | Colonised: " << (colonised ? "Yes" : "No")

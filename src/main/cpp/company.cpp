@@ -9,12 +9,12 @@ Company::Company(string nm)
 
 void Company::displayStatus() {
     cout<<"Company: " << name
-    << "| Money: £" << money
+    << "| Money: " << money
     << "| Manpower: " << manpower
     << "| Income: " << income << endl;
 }
 
-void Company::attemptColonise(Province& p){
+void Company::attemptColonise(Province& p, Company& c){
     cout << "Attempting to colonise " << p.name << "...\n";
     if (p.colonised) {
         cout << "Province is already owned by " << p.owner <<"!\n";
@@ -30,7 +30,7 @@ void Company::attemptColonise(Province& p){
 
     cout << "Successful colonisation!\n";
     p.colonised = true;
-    p.owner = name;
+    p.owner = &c;
     money -= investment;
     manpower -= manpowerCost;
 }

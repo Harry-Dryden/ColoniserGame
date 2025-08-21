@@ -12,7 +12,7 @@ Game::Game(string playerName) : player(playerName), turn(1){
 void Game::run(){
     cout<<"Welcome to Coloniser!\n";
     while(true){
-        cout<< "=|=|=|=|= Turn:" << turn << "=|=|=|=|=\n";
+        cout<< "=|=|=|=|= Turn:" << turn << " =|=|=|=|=\n";
         player.displayStatus();
         showProvinces();
         displayMenu();
@@ -47,7 +47,7 @@ void Game::displayMenu(){
 void Game::showProvinces(){
     cout << "All provinces:\n";
     for (int provNum = 0; provNum < provinces.size(); ++provNum){
-        cout << provNum + 1 << ".";
+        cout << provNum + 1 << ". ";
         provinces[provNum].displayInfo();
     }
 }
@@ -60,5 +60,5 @@ void Game::handleColonisation(){
         cout << "Invalid province selection.\n";
         return;
     }
-    player.attemptColonise(provinces[index-1]);
+    player.attemptColonise(provinces[index-1], player);
 }
