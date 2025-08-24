@@ -19,7 +19,7 @@ class Company {
 
     void displayStatus();
 
-    void attemptColonise(Province& p, Company& c);
+    void attemptColonise(Province& p);
 };
 
 #endif //COMPANY_H

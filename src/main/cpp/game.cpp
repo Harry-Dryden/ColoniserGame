@@ -60,5 +60,5 @@ void Game::handleColonisation(){
         cout << "Invalid province selection.\n";
         return;
     }
-    player.attemptColonise(provinces[index-1], player);
+    player.attemptColonise(provinces[index-1]);
 }

@@ -14,7 +14,7 @@ void Company::displayStatus() {
     << "| Income: " << income << endl;
 }
 
-void Company::attemptColonise(Province& p, Company& c){
+void Company::attemptColonise(Province& p){
     cout << "Attempting to colonise " << p.name << "...\n";
     if (p.colonised) {
         cout << "Province is already owned by " << p.owner <<"!\n";
@@ -30,7 +30,7 @@ void Company::attemptColonise(Province& p, Company& c){
 
     cout << "Successful colonisation!\n";
     p.colonised = true;
-    p.owner = &c;
+    p.owner = this;
     money -= investment;
     manpower -= manpowerCost;
 }

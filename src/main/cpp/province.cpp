@@ -1,4 +1,5 @@
 #include "Province.h"
+#include "Company.h"
 #include <iostream>
 
 using namespace std;
@@ -11,5 +12,6 @@ void Province::displayInfo(){
          << " | Strength: " << strength
          << " | Value: " << economicVal
          << " | Colonised: " << (colonised ? "Yes" : "No")
-         << " | Owner: " << owner << endl;
+         << " | Owner: " << (owner ? owner->name : "None")
+         << endl;
 }

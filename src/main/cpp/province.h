@@ -6,7 +6,7 @@
 #define PROVINCE_H
 
 #include <string>
-#include "Company.h"
+class Company;
 
 //represents a province on the game map
 class Province {
