@@ -1,2 +1,2 @@
-# CGame
-Making a game in the language of C++
+# ColoniserGame
+Making a strategy game in the language of C++
