@@ -3,8 +3,14 @@ project(CGame)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(src/main/cpp)
+include_directories(${CMAKE_SOURCE_DIR}/include/main/cpp)
 
 add_executable(CGame
     src/main/cpp/main.cpp
-    src/main/cpp/main.h)
+    src/main/cpp/Company.cpp
+    src/main/cpp/Game.cpp
+    src/main/cpp/Good.cpp
+    src/main/cpp/Goods.cpp
+    src/main/cpp/Population.cpp
+    src/main/cpp/Province.cpp
+    )

@@ -1,0 +1,3 @@
+C:/Users/Bland/OneDrive/Documents/colonise/CGame/build/CMakeFiles/CGame.dir
+C:/Users/Bland/OneDrive/Documents/colonise/CGame/build/CMakeFiles/edit_cache.dir
+C:/Users/Bland/OneDrive/Documents/colonise/CGame/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\CGame.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\CGame.dir/objects.a @CMakeFiles\CGame.dir\objects1.rsp
+C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\CGame.dir/objects.a -Wl,--no-whole-archive -o CGame.exe -Wl,--out-implib,libCGame.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CGame.dir\linkLibs.rsp

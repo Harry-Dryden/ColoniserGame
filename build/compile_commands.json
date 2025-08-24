@@ -1,0 +1,44 @@
+[
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\main.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\main.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/main.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Company.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Company.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Company.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Company.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Game.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Game.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Game.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Game.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Good.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Good.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Good.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Good.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Goods.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Goods.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Goods.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Population.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Population.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Population.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Province.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Province.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Province.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj"
+}
+]
