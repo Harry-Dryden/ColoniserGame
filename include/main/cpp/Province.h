@@ -6,6 +6,9 @@
 #define PROVINCE_H
 
 #include <string>
+#include <vector>
+#include "Terrain.h"
+#include "TerrainGoods.h"
 class Company;
 class Good;
 
@@ -14,7 +17,9 @@ class Province {
     private:
     std::string name;
     bool colonised; //is the province already taken?
+    Terrain terrain; //terrain from the enum
     Company* owner; //the Company which controls the province
+    std::vector<Good*> potentialGoods;
     Good* tradeGood; //the Goods of the province
     int strength; //dictates difficulty to take or colonise
     int population; //the population of the province
@@ -22,7 +27,8 @@ class Province {
     int income; //realised economic income, based on potential economic value, trade good and population
 
     public:
-    Province(std::string nm, int stren, int val); //province constructor
+    Province(std::string nm, int stren, int val, Terrain terr); //province 
+    Province(std::string nm, int stren, int val, Terrain terr, int fixedGoodID); //province 
 
     void coloniseProvince(Company* coloniser); //essentially a second constructor for when a province is colonised
 
@@ -44,7 +50,9 @@ class Province {
 
     void setPopulation(int pop);
 
+    void setTradeGood(Good* newGood);
+
     void updateIncome();
 };
 
-#endif //PROVINCE_H
+#endif

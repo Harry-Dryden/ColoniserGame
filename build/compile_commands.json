@@ -40,5 +40,17 @@
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\Province.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\Province.cpp",
   "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Province.cpp",
   "output": "CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\ProvinceLoader.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\ProvinceLoader.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/ProvinceLoader.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj"
+},
+{
+  "directory": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/CGame.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\CGame.dir\\src\\main\\cpp\\TerrainGoods.cpp.obj -c C:\\Users\\Bland\\OneDrive\\Documents\\colonise\\CGame\\src\\main\\cpp\\TerrainGoods.cpp",
+  "file": "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/TerrainGoods.cpp",
+  "output": "CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj"
 }
 ]

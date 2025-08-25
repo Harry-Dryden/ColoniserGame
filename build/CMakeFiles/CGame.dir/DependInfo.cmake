@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Goods.cpp" "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj.d"
   "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Population.cpp" "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj.d"
   "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/Province.cpp" "CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj.d"
+  "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/ProvinceLoader.cpp" "CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj.d"
+  "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/TerrainGoods.cpp" "CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj.d"
   "C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/main.cpp" "CMakeFiles/CGame.dir/src/main/cpp/main.cpp.obj" "gcc" "CMakeFiles/CGame.dir/src/main/cpp/main.cpp.obj.d"
   )
 

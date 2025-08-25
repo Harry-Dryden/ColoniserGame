@@ -10,6 +10,8 @@
 #include <memory>
 #include "Company.h"
 #include "Province.h"
+#include "Terrain.h"
+#include "ProvinceLoader.h"
 
 class Game {
     private:

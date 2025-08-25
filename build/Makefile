@@ -272,6 +272,54 @@ src/main/cpp/Province.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.s
 .PHONY : src/main/cpp/Province.cpp.s
 
+src/main/cpp/ProvinceLoader.obj: src/main/cpp/ProvinceLoader.cpp.obj
+.PHONY : src/main/cpp/ProvinceLoader.obj
+
+# target to build an object file
+src/main/cpp/ProvinceLoader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj
+.PHONY : src/main/cpp/ProvinceLoader.cpp.obj
+
+src/main/cpp/ProvinceLoader.i: src/main/cpp/ProvinceLoader.cpp.i
+.PHONY : src/main/cpp/ProvinceLoader.i
+
+# target to preprocess a source file
+src/main/cpp/ProvinceLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.i
+.PHONY : src/main/cpp/ProvinceLoader.cpp.i
+
+src/main/cpp/ProvinceLoader.s: src/main/cpp/ProvinceLoader.cpp.s
+.PHONY : src/main/cpp/ProvinceLoader.s
+
+# target to generate assembly for a file
+src/main/cpp/ProvinceLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.s
+.PHONY : src/main/cpp/ProvinceLoader.cpp.s
+
+src/main/cpp/TerrainGoods.obj: src/main/cpp/TerrainGoods.cpp.obj
+.PHONY : src/main/cpp/TerrainGoods.obj
+
+# target to build an object file
+src/main/cpp/TerrainGoods.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj
+.PHONY : src/main/cpp/TerrainGoods.cpp.obj
+
+src/main/cpp/TerrainGoods.i: src/main/cpp/TerrainGoods.cpp.i
+.PHONY : src/main/cpp/TerrainGoods.i
+
+# target to preprocess a source file
+src/main/cpp/TerrainGoods.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.i
+.PHONY : src/main/cpp/TerrainGoods.cpp.i
+
+src/main/cpp/TerrainGoods.s: src/main/cpp/TerrainGoods.cpp.s
+.PHONY : src/main/cpp/TerrainGoods.s
+
+# target to generate assembly for a file
+src/main/cpp/TerrainGoods.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.s
+.PHONY : src/main/cpp/TerrainGoods.cpp.s
+
 src/main/cpp/main.obj: src/main/cpp/main.cpp.obj
 .PHONY : src/main/cpp/main.obj
 
@@ -323,6 +371,12 @@ help:
 	@echo ... src/main/cpp/Province.obj
 	@echo ... src/main/cpp/Province.i
 	@echo ... src/main/cpp/Province.s
+	@echo ... src/main/cpp/ProvinceLoader.obj
+	@echo ... src/main/cpp/ProvinceLoader.i
+	@echo ... src/main/cpp/ProvinceLoader.s
+	@echo ... src/main/cpp/TerrainGoods.obj
+	@echo ... src/main/cpp/TerrainGoods.i
+	@echo ... src/main/cpp/TerrainGoods.s
 	@echo ... src/main/cpp/main.obj
 	@echo ... src/main/cpp/main.i
 	@echo ... src/main/cpp/main.s

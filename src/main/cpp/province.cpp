@@ -5,19 +5,35 @@
 
 using namespace std;
 
-Province::Province(string nm, int stren, int val)
-    : name(nm), colonised(false), strength(stren), economicVal(val), owner(nullptr), 
-    tradeGood(&Goods::goods.at(0)), population(0), income(0){}
+Province::Province(string nm, int stren, int val, Terrain terr)
+    : name(nm), colonised(false), strength(stren), economicVal(val), terrain(terr),
+    owner(nullptr), tradeGood(&Goods::goods.at(0)), population(0), income(0){}
+
+Province::Province(string nm, int stren, int val, Terrain terr, int fixedGoodID)
+    : name(nm), colonised(false), strength(stren), economicVal(val), terrain(terr),
+    owner(nullptr), tradeGood(&Goods::goods.at(fixedGoodID)), population(0), income(0){}
 
 void Province::coloniseProvince(Company* coloniser){
     population = 100;
-    tradeGood = (&Goods::goods.at(1)); //initial test, sets good to grain for all provinces -- needs to be randomised later on
+    if(tradeGood == &Goods::goods.at(0)){
+        auto potentialGoods = TerrainGoods::getPotentialGoods(terrain);
+        if (!potentialGoods.empty()) {
+            int randomIndex = rand() % potentialGoods.size();
+            int goodId = potentialGoods[randomIndex];
+            tradeGood = &Goods::goods.at(goodId);
+        } else {
+            std::cerr << "No potential goods for terrain in province "
+                      << name << std::endl;
+            tradeGood = &Goods::goods.at(0); // fallback "None"
+        }
+    }
     owner = coloniser;
     colonised = true;
 }
 
 void Province::displayInfo(){ //displays basic information about the province, which changes when it is colonised
-    cout << "Province: "<<name;
+    cout << "Province: " << name
+         << " | Terrain: " << terrainToString(terrain);
     if (colonised == false){
         cout << " | Strength: " << strength
              << " | Potential Value: " << economicVal
@@ -62,6 +78,10 @@ void Province::updatePopulation(){ //if province is owned, this updates the popu
 
 void Province::setPopulation(int pop){ //sets the new population of the province - probably only for use when province is colonised, rest should be dynamic
     population = pop;
+}
+
+void Province::setTradeGood(Good* newGood){
+    tradeGood = newGood;
 }
 
 void Province::updateIncome(){ //updates the economic value of the province

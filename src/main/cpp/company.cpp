@@ -42,7 +42,6 @@ void Company::attemptColonise(Province& p){
 }
 
 void Company::updateIncome(int newIncome){
-
 }
 
 void Company::endTurnUpdate(){

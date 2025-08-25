@@ -176,6 +176,36 @@ CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\Province.cpp -o CMakeFiles\CGame.dir\src\main\cpp\Province.cpp.s
 
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj: CMakeFiles/CGame.dir/flags.make
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj: CMakeFiles/CGame.dir/includes_CXX.rsp
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj: C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/ProvinceLoader.cpp
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj: CMakeFiles/CGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bland\OneDrive\Documents\colonise\CGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj -MF CMakeFiles\CGame.dir\src\main\cpp\ProvinceLoader.cpp.obj.d -o CMakeFiles\CGame.dir\src\main\cpp\ProvinceLoader.cpp.obj -c C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\ProvinceLoader.cpp
+
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\ProvinceLoader.cpp > CMakeFiles\CGame.dir\src\main\cpp\ProvinceLoader.cpp.i
+
+CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\ProvinceLoader.cpp -o CMakeFiles\CGame.dir\src\main\cpp\ProvinceLoader.cpp.s
+
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj: CMakeFiles/CGame.dir/flags.make
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj: CMakeFiles/CGame.dir/includes_CXX.rsp
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj: C:/Users/Bland/OneDrive/Documents/colonise/CGame/src/main/cpp/TerrainGoods.cpp
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj: CMakeFiles/CGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bland\OneDrive\Documents\colonise\CGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj -MF CMakeFiles\CGame.dir\src\main\cpp\TerrainGoods.cpp.obj.d -o CMakeFiles\CGame.dir\src\main\cpp\TerrainGoods.cpp.obj -c C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\TerrainGoods.cpp
+
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\TerrainGoods.cpp > CMakeFiles\CGame.dir\src\main\cpp\TerrainGoods.cpp.i
+
+CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bland\OneDrive\Documents\colonise\CGame\src\main\cpp\TerrainGoods.cpp -o CMakeFiles\CGame.dir\src\main\cpp\TerrainGoods.cpp.s
+
 # Object files for target CGame
 CGame_OBJECTS = \
 "CMakeFiles/CGame.dir/src/main/cpp/main.cpp.obj" \
@@ -184,7 +214,9 @@ CGame_OBJECTS = \
 "CMakeFiles/CGame.dir/src/main/cpp/Good.cpp.obj" \
 "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj" \
 "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj" \
-"CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj"
+"CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj" \
+"CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj" \
+"CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj"
 
 # External object files for target CGame
 CGame_EXTERNAL_OBJECTS =
@@ -196,11 +228,13 @@ CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/Good.cpp.obj
 CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj
 CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj
 CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj
+CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/ProvinceLoader.cpp.obj
+CGame.exe: CMakeFiles/CGame.dir/src/main/cpp/TerrainGoods.cpp.obj
 CGame.exe: CMakeFiles/CGame.dir/build.make
 CGame.exe: CMakeFiles/CGame.dir/linkLibs.rsp
 CGame.exe: CMakeFiles/CGame.dir/objects1.rsp
 CGame.exe: CMakeFiles/CGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Bland\OneDrive\Documents\colonise\CGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable CGame.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Bland\OneDrive\Documents\colonise\CGame\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable CGame.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\CGame.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

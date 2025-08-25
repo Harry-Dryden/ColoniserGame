@@ -11,7 +11,7 @@ using namespace std;
 
 // Entry point
 int main() {
-    srand(static_cast<unsigned int>(time(0))); // Seed RNG
+    std::srand(static_cast<unsigned>(std::time(nullptr))); // seed randomness
 
     string name;
     cout << "Enter your company name: ";

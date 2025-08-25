@@ -13,4 +13,6 @@ add_executable(CGame
     src/main/cpp/Goods.cpp
     src/main/cpp/Population.cpp
     src/main/cpp/Province.cpp
+    src/main/cpp/ProvinceLoader.cpp
+    src/main/cpp/TerrainGoods.cpp
     )

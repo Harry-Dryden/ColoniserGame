@@ -5,11 +5,12 @@ using namespace std;
 
 Game::Game(string playerName){
     turn=1;
+    auto loadedProvinces = ProvinceLoader::loadInitialProvinces();
+    for (auto& prov : loadedProvinces) {
+        provinces.push_back(std::move(prov));
+    }
     companies.push_back(std::make_unique<Company>(playerName));
     playerCompany = companies[0].get(); 
-    provinces.push_back(std::make_unique<Province>("Green Coast", 10, 20));
-    provinces.push_back(std::make_unique<Province>("Jungle Coast", 70, 100));
-    provinces.push_back(std::make_unique<Province>("Pirate Coast", 200, 500));
 }
 
 void Game::run(){
