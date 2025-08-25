@@ -14,14 +14,19 @@ void Company::displayStatus() {
     << "| Income: " << income << endl;
 }
 
+std::string Company::getName(){
+    return name;
+}
+
 void Company::attemptColonise(Province& p){
-    cout << "Attempting to colonise " << p.name << "...\n";
-    if (p.colonised) {
-        cout << "Province is already owned by " << p.owner <<"!\n";
+    cout << "Attempting to colonise " << p.getName() << "...\n";
+    if (p.isColonised()) {
+        cout << "Province is already owned by " << (p.getOwner()->getName()) <<"!\n";
         return;
     }
-    int investment = 10 + p.strength;
-    int manpowerCost = (p.strength/2);
+    int pStrength = p.getStrength();
+    int investment = 10 + pStrength;
+    int manpowerCost = pStrength/2;
 
     if (money<investment || manpower < manpowerCost){
         cout << "Inadequate funds or men!\n";
@@ -29,8 +34,8 @@ void Company::attemptColonise(Province& p){
     }
 
     cout << "Successful colonisation!\n";
-    p.colonised = true;
-    p.owner = this;
+    p.coloniseProvince(this);
+    p.updateIncome();
     money -= investment;
     manpower -= manpowerCost;
 }

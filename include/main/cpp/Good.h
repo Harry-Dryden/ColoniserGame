@@ -12,6 +12,7 @@ class Good{
     public:
     Good(std::string n, int v, int r);
     std::string getName();
+    int getValue();
 };
 
 #endif

@@ -19,6 +19,8 @@ class Company {
 
     void displayStatus();
 
+    std::string getName();
+
     void attemptColonise(Province& p);
 };
 
