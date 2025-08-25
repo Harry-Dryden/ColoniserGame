@@ -28,6 +28,8 @@ class Game {
     void showProvinces();
 
     void handleColonisation();
+
+    void turnUpdate();
 };
 
 

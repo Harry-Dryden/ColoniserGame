@@ -27,6 +27,7 @@ void Game::run(){
                 break;
             case 2:
                 cout<< "Ending turn...\n";
+                turnUpdate();
                 turn++;
                 break;
             case 3:
@@ -63,4 +64,10 @@ void Game::handleColonisation(){
         return;
     }
     playerCompany->attemptColonise(*provinces[index-1]);
+}
+
+void Game::turnUpdate(){
+    for (auto& company : companies){
+        company->endTurnUpdate();
+    }
 }

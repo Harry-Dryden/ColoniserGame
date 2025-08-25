@@ -24,9 +24,11 @@ class Company {
 
     std::string getName();
 
-    bool attemptColonise(Province& p);
+    void attemptColonise(Province& p);
 
     void updateIncome(int newIncome);
+
+    void endTurnUpdate();
 };
 
 #endif //COMPANY_H

@@ -52,6 +52,10 @@ int Province::getIncome(){ //getter for province's income(returns int)
     return income;
 }
 
+int Province::getPopulation(){ //getter for province population (returns int)
+    return population;
+}
+
 void Province::updatePopulation(){ //if province is owned, this updates the population within it
     population+=(population*0.2); //rate of 2% growth - obviously needs to be tested, and eventually each province wants a population cap
 }
