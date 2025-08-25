@@ -7,13 +7,15 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 #include "Company.h"
 #include "Province.h"
 
 class Game {
     private:
-    Company player;
-    std::vector<Province> provinces;
+    std::vector<std::unique_ptr<Company>> companies;
+    Company* playerCompany;
+    std::vector<std::unique_ptr<Province>> provinces;
     int turn;
 
     public:

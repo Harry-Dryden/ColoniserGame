@@ -3,20 +3,22 @@
 
 using namespace std;
 
-Game::Game(string playerName) : player(playerName), turn(1){
-    provinces.push_back(Province("Green Coast", 10, 20));
-    provinces.push_back(Province("Jungle Coast", 70, 100));
-    provinces.push_back(Province("Pirate Coast", 200, 500));
+Game::Game(string playerName){
+    turn=1;
+    companies.push_back(std::make_unique<Company>(playerName));
+    playerCompany = companies[0].get(); 
+    provinces.push_back(std::make_unique<Province>("Green Coast", 10, 20));
+    provinces.push_back(std::make_unique<Province>("Jungle Coast", 70, 100));
+    provinces.push_back(std::make_unique<Province>("Pirate Coast", 200, 500));
 }
 
 void Game::run(){
     cout<<"Welcome to Coloniser!\n";
     while(true){
         cout<< "=|=|=|=|= Turn:" << turn << " =|=|=|=|=\n";
-        player.displayStatus();
+        playerCompany->displayStatus();
         showProvinces();
         displayMenu();
-
         int choice;
         cin>>choice;
         switch(choice){
@@ -48,7 +50,7 @@ void Game::showProvinces(){
     cout << "All provinces:\n";
     for (int provNum = 0; provNum < provinces.size(); ++provNum){
         cout << provNum + 1 << ". ";
-        provinces[provNum].displayInfo();
+        provinces[provNum]->displayInfo();
     }
 }
 
@@ -60,5 +62,5 @@ void Game::handleColonisation(){
         cout << "Invalid province selection.\n";
         return;
     }
-    player.attemptColonise(provinces[index-1]);
+    playerCompany->attemptColonise(*provinces[index-1]);
 }

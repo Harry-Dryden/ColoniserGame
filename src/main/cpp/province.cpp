@@ -7,7 +7,7 @@ using namespace std;
 
 Province::Province(string nm, int stren, int val)
     : name(nm), colonised(false), strength(stren), economicVal(val), owner(nullptr), 
-    tradeGood(&Goods::goods.at(0)), population(0){}
+    tradeGood(&Goods::goods.at(0)), population(0), income(0){}
 
 void Province::coloniseProvince(Company* coloniser){
     population = 100;
@@ -27,7 +27,7 @@ void Province::displayInfo(){ //displays basic information about the province, w
         cout << " | Trade Good: " << tradeGood->getName()
              << " | Population : " << population
              << " | Province Income: " << income
-             << " | Owner: " << owner->getName()
+             << " | Owner: " << (owner ? owner->getName() : "None")
              << endl;
     }
 }
@@ -46,6 +46,10 @@ bool Province::isColonised(){ //getter for wether province is colonised (returns
 
 int Province::getStrength(){ //getter for province's strength (returns int)
     return strength;
+}
+
+int Province::getIncome(){ //getter for province's income(returns int)
+    return income;
 }
 
 void Province::updatePopulation(){ //if province is owned, this updates the population within it

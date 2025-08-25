@@ -5,23 +5,28 @@
 #ifndef COMPANY_H
 #define COMPANY_H
 
+#include <vector>
 #include <string>
 #include "Province.h"
 
 class Company {
-    public:
+    private:
     std::string name;
     int money;
-    int manpower;
+    int people;
     int income;
+    std::vector<Province*> ownedProvinces;
 
+    public:
     Company(std::string nm);
 
     void displayStatus();
 
     std::string getName();
 
-    void attemptColonise(Province& p);
+    bool attemptColonise(Province& p);
+
+    void updateIncome(int newIncome);
 };
 
 #endif //COMPANY_H

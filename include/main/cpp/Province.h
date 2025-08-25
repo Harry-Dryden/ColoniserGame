@@ -36,6 +36,8 @@ class Province {
 
     int getStrength();
 
+    int getIncome();
+
     void updatePopulation();
 
     void setPopulation(int pop);
