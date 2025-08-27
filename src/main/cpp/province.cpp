@@ -72,6 +72,10 @@ int Province::getPopulation(){ //getter for province population (returns int)
     return population;
 }
 
+Terrain Province::getTerrain(){ //getter for province terrain (returns Terrain)
+    return terrain;
+}
+
 void Province::updatePopulation(){ //if province is owned, this updates the population within it
     population+=(population*0.2); //rate of 2% growth - obviously needs to be tested, and eventually each province wants a population cap
 }

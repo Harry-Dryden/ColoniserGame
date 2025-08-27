@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CGame.dir/src/main/cpp/Good.cpp.obj.d"
   "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj"
   "CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.obj.d"
+  "CMakeFiles/CGame.dir/src/main/cpp/MapGenerator.cpp.obj"
+  "CMakeFiles/CGame.dir/src/main/cpp/MapGenerator.cpp.obj.d"
   "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj"
   "CMakeFiles/CGame.dir/src/main/cpp/Population.cpp.obj.d"
   "CMakeFiles/CGame.dir/src/main/cpp/Province.cpp.obj"

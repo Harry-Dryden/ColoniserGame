@@ -224,6 +224,30 @@ src/main/cpp/Goods.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/Goods.cpp.s
 .PHONY : src/main/cpp/Goods.cpp.s
 
+src/main/cpp/MapGenerator.obj: src/main/cpp/MapGenerator.cpp.obj
+.PHONY : src/main/cpp/MapGenerator.obj
+
+# target to build an object file
+src/main/cpp/MapGenerator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/MapGenerator.cpp.obj
+.PHONY : src/main/cpp/MapGenerator.cpp.obj
+
+src/main/cpp/MapGenerator.i: src/main/cpp/MapGenerator.cpp.i
+.PHONY : src/main/cpp/MapGenerator.i
+
+# target to preprocess a source file
+src/main/cpp/MapGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/MapGenerator.cpp.i
+.PHONY : src/main/cpp/MapGenerator.cpp.i
+
+src/main/cpp/MapGenerator.s: src/main/cpp/MapGenerator.cpp.s
+.PHONY : src/main/cpp/MapGenerator.s
+
+# target to generate assembly for a file
+src/main/cpp/MapGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CGame.dir\build.make CMakeFiles/CGame.dir/src/main/cpp/MapGenerator.cpp.s
+.PHONY : src/main/cpp/MapGenerator.cpp.s
+
 src/main/cpp/Population.obj: src/main/cpp/Population.cpp.obj
 .PHONY : src/main/cpp/Population.obj
 
@@ -365,6 +389,9 @@ help:
 	@echo ... src/main/cpp/Goods.obj
 	@echo ... src/main/cpp/Goods.i
 	@echo ... src/main/cpp/Goods.s
+	@echo ... src/main/cpp/MapGenerator.obj
+	@echo ... src/main/cpp/MapGenerator.i
+	@echo ... src/main/cpp/MapGenerator.s
 	@echo ... src/main/cpp/Population.obj
 	@echo ... src/main/cpp/Population.i
 	@echo ... src/main/cpp/Population.s

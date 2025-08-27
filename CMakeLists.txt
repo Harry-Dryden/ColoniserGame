@@ -15,4 +15,5 @@ add_executable(CGame
     src/main/cpp/Province.cpp
     src/main/cpp/ProvinceLoader.cpp
     src/main/cpp/TerrainGoods.cpp
+    src/main/cpp/MapGenerator.cpp
     )

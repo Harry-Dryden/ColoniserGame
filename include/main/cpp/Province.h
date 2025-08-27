@@ -46,6 +46,8 @@ class Province {
 
     int getPopulation();
 
+    Terrain getTerrain();
+
     void updatePopulation();
 
     void setPopulation(int pop);
