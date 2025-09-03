@@ -61,11 +61,11 @@ void Game::displayMenu(){
 
 void Game::showColonisableProvinces(){
     cout << "Colonisable provinces:\n";
-    for (int provX = 0; provX < provinces.size(); ++provX){
-        for (int provY = 0; provY < provinces[provX].size(); ++provY){
-            if(provinces[provX][provY]->isColonisable()){
-                cout << provX << " / " << provY << ". ";
-                provinces[provX][provY]->displayInfo();
+    for (int provY = 0; provY < provinces.size(); ++provY){
+        for (int provX = 0; provX < provinces[provY].size(); ++provX){
+            if(provinces[provY][provX]->isColonisable()){
+                cout << provY << " / " << provX << ". ";
+                provinces[provY][provX]->displayInfo();
             }
         }
     }
@@ -73,9 +73,9 @@ void Game::showColonisableProvinces(){
 
 void Game::showAllProvinces(){
     cout << "All provinces:\n";
-    for (int provX = 0; provX < provinces.size(); ++provX){
-        for (int provY = 0; provY < provinces[provX].size(); ++provY){
-            cout << provX << " / " << provY << ". ";
+    for (int provY = 0; provY < provinces.size(); ++provY){
+        for (int provX = 0; provX < provinces[provY].size(); ++provX){
+            cout << provY << " / " << provX << ". ";
             provinces[provY][provX]->displayInfo();
         }
     }
@@ -98,13 +98,6 @@ void Game::showMap(){
 }
 
 void Game::handleColonisation(){
-    cout << "Enter the x of the province to colonise: ";
-    int x;
-    cin >> x;
-    if (x < 1 || x > provinces.size()){
-        cout << "Invalid province selection.\n";
-        return;
-    }
     cout << "Enter the y of the province to colonise: ";
     int y;
     cin >> y;
@@ -112,7 +105,44 @@ void Game::handleColonisation(){
         cout << "Invalid province selection.\n";
         return;
     }
-    playerCompany->attemptColonise(*provinces[x][y]);
+    cout << "Enter the x of the province to colonise: ";
+    int x;
+    cin >> x;
+    if (x < 1 || x > provinces.size()){
+        cout << "Invalid province selection.\n";
+        return;
+    }
+    if(provinces[y][x]->isColonisable()){ 
+        playerCompany->attemptColonise(*provinces[y][x]);
+        std::vector<std::pair<int,int>> directions = {
+            {0, -1}, // north
+            {0,  1}, // south
+            {-1, 0}, // west
+            {1,  0}  // east
+        };
+        for(int d = 0; d<directions.size(); d++){
+            std::pair<int,int> currDirection = directions.at(d);
+            int ny = currDirection.second + y;
+            int nx = currDirection.first + x;
+            if(ny>=0 && ny<provinces.size() && nx>=0 && nx<provinces[ny].size()){
+                auto& neighbour = provinces[ny][nx];
+                if(!neighbour->isColonised()){
+                    if(neighbour->getTerrain()!=Terrain::Sea){
+                        neighbour->setColonisable(true);
+                        cout<< neighbour->getName() << " is colonisable!\n";
+                    } else {
+                        cout<< "Even our best sailors cannot colonise the sea. \n";
+                    }
+                } else {
+                    cout<< "It appears this province has already been colonised! Perhaps we should ready our armies... \n";
+                }
+            } else {
+                cout<< "The edge of the map has been reached! Perhaps it is a flat earth... \n";
+            }
+        }
+    } else {
+        cout<< "Despite our best efforts, this province isn't colonisable. \n";
+    }
 }
 
 void Game::turnUpdate(){

@@ -9,7 +9,7 @@ std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int w
     for(int y=0; y<height; ++y){
         grid[y].resize(width);
         for(int x=0; x<width; ++x){
-            std::string provName = "Province_" + std::to_string(x) + "_" + std::to_string(y);
+            std::string provName = "Province_" + std::to_string(y) + "_" + std::to_string(x);
             Terrain prevTerrainX;
             Terrain prevTerrainY;
             Terrain newTerrain;

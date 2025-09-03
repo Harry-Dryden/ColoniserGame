@@ -14,8 +14,7 @@ Province::Province(string nm, int stren, int val, Terrain terr, int fixedGoodID)
     owner(nullptr), tradeGood(&Goods::goods.at(fixedGoodID)), population(0), income(0){}
 
 void Province::coloniseProvince(Company* coloniser){
-    if(colonisable==true){
-        population = 100;
+    population = 100;
         if(tradeGood == &Goods::goods.at(0)){
             auto potentialGoods = TerrainGoods::getPotentialGoods(terrain);
             if (!potentialGoods.empty()) {
@@ -31,7 +30,6 @@ void Province::coloniseProvince(Company* coloniser){
         owner = coloniser;
         colonised = true;
         colonisable = false;
-    } else { cout << "Province currently uncolonisable! \n";}
 }
 
 void Province::displayInfo(){ //displays basic information about the province, which changes when it is colonised
@@ -65,6 +63,10 @@ bool Province::isColonised(){ //getter for wether province is colonised (returns
 
 bool Province::isColonisable(){ //getter for wether province is colonisable (returns bool - true if it is colonisable)
     return colonisable;
+}
+
+void Province::setColonisable(bool canBeColonised){
+    colonisable = canBeColonised;
 }
 
 int Province::getStrength(){ //getter for province's strength (returns int)

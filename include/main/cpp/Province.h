@@ -43,6 +43,8 @@ class Province {
 
     bool isColonisable();
 
+    void setColonisable(bool canBeColonised);
+
     int getStrength();
 
     int getIncome();
