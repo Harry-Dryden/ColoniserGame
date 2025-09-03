@@ -44,7 +44,7 @@ bool Company::attemptColonise(Province& p){
     money -= investment;
     workforce -=manpowerCost;
     cout << manpowerCost << " of our workforce has been lost in the colonisation effort.\n";
-    cout << investment << " has been invested in the colonisation effort.\n";
+    cout << investment << " of our gold has been invested in the colonisation effort.\n";
     if (ownedProvinces.empty()) {
         p.addPopulation(population);
         cout << population << " people on our boats have arrived at our new colony.\n";

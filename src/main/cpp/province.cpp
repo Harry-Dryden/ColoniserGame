@@ -103,5 +103,5 @@ void Province::setTradeGood(Good* newGood){
 
 void Province::updateIncome(){ //updates the economic value of the province
     int goodVal = tradeGood->getValue();
-    income=(economicVal+goodVal)*population;
+    income=(economicVal+goodVal)*(population/10);
 }
