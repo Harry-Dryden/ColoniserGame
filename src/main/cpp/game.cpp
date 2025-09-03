@@ -5,10 +5,7 @@ using namespace std;
 
 Game::Game(string playerName){
     turn=1;
-    auto loadedProvinces = ProvinceLoader::loadInitialProvinces();
-    for (auto& prov : loadedProvinces) {
-        provinces.push_back(std::move(prov));
-    }
+    provinces = std::move(MapGenerator::generate(60, 20));
     companies.push_back(std::make_unique<Company>(playerName));
     playerCompany = companies[0].get(); 
 }
@@ -50,21 +47,30 @@ void Game::displayMenu(){
 
 void Game::showProvinces(){
     cout << "All provinces:\n";
-    for (int provNum = 0; provNum < provinces.size(); ++provNum){
-        cout << provNum + 1 << ". ";
-        provinces[provNum]->displayInfo();
+    for (int provX = 0; provX < provinces.size(); ++provX){
+        for (int provY = 0; provY < provinces[provX].size(); ++provY){
+            cout << provX << " / " << provY << ". ";
+            provinces[provX][provY]->displayInfo();
+        }
     }
 }
 
 void Game::handleColonisation(){
-    cout << "Enter the number of the province to colonise: ";
-    int index;
-    cin >> index;
-    if (index < 1 || index > provinces.size()){
+    cout << "Enter the x of the province to colonise: ";
+    int x;
+    cin >> x;
+    if (x < 1 || x > provinces.size()){
         cout << "Invalid province selection.\n";
         return;
     }
-    playerCompany->attemptColonise(*provinces[index-1]);
+    cout << "Enter the y of the province to colonise: ";
+    int y;
+    cin >> y;
+    if (y < 1 || y > provinces[y].size()){
+        cout << "Invalid province selection.\n";
+        return;
+    }
+    playerCompany->attemptColonise(*provinces[x][y]);
 }
 
 void Game::turnUpdate(){

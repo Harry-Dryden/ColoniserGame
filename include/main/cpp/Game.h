@@ -11,13 +11,14 @@
 #include "Company.h"
 #include "Province.h"
 #include "Terrain.h"
-#include "ProvinceLoader.h"
+//#include "ProvinceLoader.h"
+#include "MapGenerator.h"
 
 class Game {
     private:
     std::vector<std::unique_ptr<Company>> companies;
     Company* playerCompany;
-    std::vector<std::unique_ptr<Province>> provinces;
+    std::vector<std::vector<std::unique_ptr<Province>>> provinces;
     int turn;
 
     public:
