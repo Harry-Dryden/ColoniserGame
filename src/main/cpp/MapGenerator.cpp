@@ -34,7 +34,7 @@ std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int w
                     }
                 } else { newTerrain = Terrain::Sea;} //default for errors
             }
-            /**
+            /** OLD 'RANDOM' TERRAIN GEN
             int r = rand() % 100;
             Terrain terrain;
             if (r<20) terrain = Terrain::Sea; //20%
@@ -46,15 +46,15 @@ std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int w
             else if (r<90) terrain = Terrain::Hills; //15%
             else if (r<100) terrain = Terrain::Mountains; //10%
             **/
-            int strength = 10;
-            int value = 10;
+            int strength = 80;
+            int value = 1;
             grid[y][x] = std::make_unique<Province>(provName, strength, value, newTerrain);
         }
     }
     return grid;
 }
 
-/**
+/** OLD PRINT MAP - NOW MOVED TO GAME.cpp
 void MapGenerator::printMap(const std::vector<std::vector<std::unique_ptr<Province>>>& grid){
     for(int y=0; y<grid.size(); ++y){
         for(int x=0; x<grid[y].size(); ++x){
@@ -67,7 +67,7 @@ void MapGenerator::printMap(const std::vector<std::vector<std::unique_ptr<Provin
 }
 */
 
-/**
+/** OLD PROCEDURAL GENERATION - only based on left terrain, NOW MOVED TO TERRAINDETERMINER.H
 Terrain MapGenerator::decideTerrain(Terrain prevTerrain, int x, int y){
     if(x==0){
         return Terrain::Sea;

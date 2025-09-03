@@ -57,6 +57,8 @@ class Province {
 
     void setPopulation(int pop);
 
+    void addPopulation(int pop);
+
     void setTradeGood(Good* newGood);
 
     void updateIncome();

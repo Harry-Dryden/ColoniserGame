@@ -14,7 +14,7 @@ Province::Province(string nm, int stren, int val, Terrain terr, int fixedGoodID)
     owner(nullptr), tradeGood(&Goods::goods.at(fixedGoodID)), population(0), income(0){}
 
 void Province::coloniseProvince(Company* coloniser){
-    population = 100;
+    population = 10;
         if(tradeGood == &Goods::goods.at(0)){
             auto potentialGoods = TerrainGoods::getPotentialGoods(terrain);
             if (!potentialGoods.empty()) {
@@ -91,6 +91,10 @@ void Province::updatePopulation(){ //if province is owned, this updates the popu
 
 void Province::setPopulation(int pop){ //sets the new population of the province - probably only for use when province is colonised, rest should be dynamic
     population = pop;
+}
+
+void Province::addPopulation(int pop){ //adds to the existing population of the province
+    population += pop;
 }
 
 void Province::setTradeGood(Good* newGood){

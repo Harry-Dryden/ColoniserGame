@@ -32,6 +32,8 @@ class Game {
 
     void showAllProvinces();
 
+    void showOurProvinces();
+
     void showMap();
 
     void handleColonisation();

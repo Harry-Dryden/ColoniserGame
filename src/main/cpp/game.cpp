@@ -14,29 +14,33 @@ void Game::run(){
     cout<<"Welcome to Coloniser!\n";
     while(true){
         cout<< "=|=|=|=|= Turn:" << turn << " =|=|=|=|=\n";
+        playerCompany->displayStatus();
         displayMenu();
         int choice;
         cin>>choice;
         switch(choice){
             case 1:
+            //FOR LOOP FOR OTHER COMPANIES
                 playerCompany->displayStatus();
                 break;
             case 2:
-                showColonisableProvinces();
+                showOurProvinces();
                 break;
             case 3:
-                showAllProvinces();
+                showColonisableProvinces();
                 break;
             case 4:
-                showMap();
+                showAllProvinces();
                 break;
             case 5:
-                handleColonisation();
+                showMap();
                 break;
             case 6:
-                cout<< "Ending turn...\n";
+                handleColonisation();
                 turnUpdate();
-                turn++;
+                break;
+            case 7:
+                turnUpdate();
                 break;
             case 0:
                 cout<< "Exiting game.";
@@ -49,12 +53,13 @@ void Game::run(){
 
 void Game::displayMenu(){
     cout << "What would you like to do?\n";
-    cout << "1. Show player status;\n";
-    cout << "2. Show colonisable provinces;\n";
-    cout << "3. Show all provinces;\n";
-    cout << "4. Show the province map;\n";
-    cout << "5. Attempt to colonise a new province;\n";
-    cout << "6. End your turn;\n";
+    cout << "1. Show company statuses;\n";
+    cout << "2. Show our provinces;\n";
+    cout << "3. Show colonisable provinces;\n";
+    cout << "4. Show all provinces;\n";
+    cout << "5. Show the province map;\n";
+    cout << "6. Attempt to colonise a new province;\n";
+    cout << "7. End your turn;\n";
     cout << "0. Exit the game;\n";
     cout << "Choice: ";
 }
@@ -81,6 +86,14 @@ void Game::showAllProvinces(){
     }
 }
 
+void Game::showOurProvinces(){
+    cout << "Our provinces:\n";
+    std::vector<Province*> ownedProvinces = playerCompany->getOwnedProvinces();
+    for (int p=0; p<ownedProvinces.size(); p++){
+        ownedProvinces[p]->displayInfo();
+    }
+}
+
 void Game::showMap(){
     for(int y=0; y<provinces.size(); ++y){
         for(int x=0; x<provinces[y].size(); ++x){
@@ -101,51 +114,56 @@ void Game::handleColonisation(){
     cout << "Enter the y of the province to colonise: ";
     int y;
     cin >> y;
-    if (y < 1 || y > provinces[y].size()){
+    if (y < 1 || y > provinces.size()){
         cout << "Invalid province selection.\n";
         return;
     }
     cout << "Enter the x of the province to colonise: ";
     int x;
     cin >> x;
-    if (x < 1 || x > provinces.size()){
+    if (x < 1 || x > provinces[y].size()){
         cout << "Invalid province selection.\n";
         return;
     }
     if(provinces[y][x]->isColonisable()){ 
-        playerCompany->attemptColonise(*provinces[y][x]);
-        std::vector<std::pair<int,int>> directions = {
-            {0, -1}, // north
-            {0,  1}, // south
-            {-1, 0}, // west
-            {1,  0}  // east
-        };
-        for(int d = 0; d<directions.size(); d++){
-            std::pair<int,int> currDirection = directions.at(d);
-            int ny = currDirection.second + y;
-            int nx = currDirection.first + x;
-            if(ny>=0 && ny<provinces.size() && nx>=0 && nx<provinces[ny].size()){
-                auto& neighbour = provinces[ny][nx];
-                if(!neighbour->isColonised()){
-                    if(neighbour->getTerrain()!=Terrain::Sea){
-                        neighbour->setColonisable(true);
-                        cout<< neighbour->getName() << " is colonisable!\n";
+        if(playerCompany->attemptColonise(*provinces[y][x])){
+            std::vector<std::pair<int,int>> directions = {
+                {0, -1}, // north
+                {0,  1}, // south
+                {-1, 0}, // west
+                {1,  0}  // east
+            };
+            for(int d = 0; d<directions.size(); d++){
+                std::pair<int,int> currDirection = directions.at(d);
+                int ny = currDirection.second + y;
+                int nx = currDirection.first + x;
+                if(ny>=0 && ny<provinces.size() && nx>=0 && nx<provinces[ny].size()){
+                    auto& neighbour = provinces[ny][nx];
+                    if(!neighbour->isColonised()){
+                        if(neighbour->getTerrain()!=Terrain::Sea){
+                            neighbour->setColonisable(true);
+                            cout<< neighbour->getName() << " is colonisable!\n";
+                        } else {
+                            cout<< "Even our best sailors cannot colonise the sea. \n";
+                        }
                     } else {
-                        cout<< "Even our best sailors cannot colonise the sea. \n";
+                        cout<< "It appears this province has already been colonised! Perhaps we should ready our armies... \n";
                     }
                 } else {
-                    cout<< "It appears this province has already been colonised! Perhaps we should ready our armies... \n";
+                    cout<< "The edge of the map has been reached! Perhaps it is a flat earth... \n";
                 }
-            } else {
-                cout<< "The edge of the map has been reached! Perhaps it is a flat earth... \n";
             }
+        } else {
+            cout<< "We are lacking in funds or people to colonise this province. \n";
         }
-    } else {
+    }  else {
         cout<< "Despite our best efforts, this province isn't colonisable. \n";
     }
 }
 
 void Game::turnUpdate(){
+    cout<< "Ending turn...\n";
+    turn++;
     for (auto& company : companies){
         company->endTurnUpdate();
     }

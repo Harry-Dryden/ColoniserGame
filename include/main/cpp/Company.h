@@ -13,7 +13,8 @@ class Company {
     private:
     std::string name;
     int money;
-    int people;
+    int population;
+    int workforce;
     int income;
     std::vector<Province*> ownedProvinces;
 
@@ -24,7 +25,9 @@ class Company {
 
     std::string getName();
 
-    void attemptColonise(Province& p);
+    std::vector<Province*> getOwnedProvinces();
+
+    bool attemptColonise(Province& p);
 
     void updateIncome(int newIncome);
 
