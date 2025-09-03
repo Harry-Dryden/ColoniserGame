@@ -28,7 +28,11 @@ class Game {
 
     void displayMenu();
 
-    void showProvinces();
+    void showColonisableProvinces();
+
+    void showAllProvinces();
+
+    void showMap();
 
     void handleColonisation();
 

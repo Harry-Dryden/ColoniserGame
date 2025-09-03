@@ -17,6 +17,7 @@ class Province {
     private:
     std::string name;
     bool colonised; //is the province already taken?
+    bool colonisable; //is the province currently colonisable?
     Terrain terrain; //terrain from the enum
     Company* owner; //the Company which controls the province
     std::vector<Good*> potentialGoods;
@@ -39,6 +40,8 @@ class Province {
     Company* getOwner();
 
     bool isColonised();
+
+    bool isColonisable();
 
     int getStrength();
 

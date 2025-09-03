@@ -14,21 +14,31 @@ void Game::run(){
     cout<<"Welcome to Coloniser!\n";
     while(true){
         cout<< "=|=|=|=|= Turn:" << turn << " =|=|=|=|=\n";
-        playerCompany->displayStatus();
-        showProvinces();
         displayMenu();
         int choice;
         cin>>choice;
         switch(choice){
             case 1:
-                handleColonisation();
+                playerCompany->displayStatus();
                 break;
             case 2:
+                showColonisableProvinces();
+                break;
+            case 3:
+                showAllProvinces();
+                break;
+            case 4:
+                showMap();
+                break;
+            case 5:
+                handleColonisation();
+                break;
+            case 6:
                 cout<< "Ending turn...\n";
                 turnUpdate();
                 turn++;
                 break;
-            case 3:
+            case 0:
                 cout<< "Exiting game.";
                 return;
             default:
@@ -39,19 +49,51 @@ void Game::run(){
 
 void Game::displayMenu(){
     cout << "What would you like to do?\n";
-    cout << "1. Attempt to colonise a new province;\n";
-    cout << "2. End your turn;\n";
-    cout << "3. Exit the game;\n";
+    cout << "1. Show player status;\n";
+    cout << "2. Show colonisable provinces;\n";
+    cout << "3. Show all provinces;\n";
+    cout << "4. Show the province map;\n";
+    cout << "5. Attempt to colonise a new province;\n";
+    cout << "6. End your turn;\n";
+    cout << "0. Exit the game;\n";
     cout << "Choice: ";
 }
 
-void Game::showProvinces(){
+void Game::showColonisableProvinces(){
+    cout << "Colonisable provinces:\n";
+    for (int provX = 0; provX < provinces.size(); ++provX){
+        for (int provY = 0; provY < provinces[provX].size(); ++provY){
+            if(provinces[provX][provY]->isColonisable()){
+                cout << provX << " / " << provY << ". ";
+                provinces[provX][provY]->displayInfo();
+            }
+        }
+    }
+}
+
+void Game::showAllProvinces(){
     cout << "All provinces:\n";
     for (int provX = 0; provX < provinces.size(); ++provX){
         for (int provY = 0; provY < provinces[provX].size(); ++provY){
             cout << provX << " / " << provY << ". ";
-            provinces[provX][provY]->displayInfo();
+            provinces[provY][provX]->displayInfo();
         }
+    }
+}
+
+void Game::showMap(){
+    for(int y=0; y<provinces.size(); ++y){
+        for(int x=0; x<provinces[y].size(); ++x){
+            Company* owner = provinces[y][x]->getOwner();
+            if(owner!=nullptr){
+                std::cout << owner->getName() <<" ";
+            } else {
+                Terrain provinceTerrain = provinces[y][x]->getTerrain();
+                char symbol = terrainToSymbol(provinceTerrain);
+                std::cout << symbol <<" ";
+            }
+        }
+        std::cout << "\n" ;
     }
 }
 

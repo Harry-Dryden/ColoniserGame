@@ -14,6 +14,8 @@ enum class Terrain{ //terrain to be used
 
 inline std::string terrainToString(Terrain terrain){
         switch (terrain) {
+        case Terrain::Sea:       return "Sea";
+        case Terrain::River:     return "River";
         case Terrain::Coast:     return "Coast";
         case Terrain::Island:    return "Island";
         case Terrain::Grassland: return "Grassland";

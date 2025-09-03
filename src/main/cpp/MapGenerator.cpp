@@ -54,6 +54,7 @@ std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int w
     return grid;
 }
 
+/**
 void MapGenerator::printMap(const std::vector<std::vector<std::unique_ptr<Province>>>& grid){
     for(int y=0; y<grid.size(); ++y){
         for(int x=0; x<grid[y].size(); ++x){
@@ -64,6 +65,7 @@ void MapGenerator::printMap(const std::vector<std::vector<std::unique_ptr<Provin
         std::cout << "\n" ;
     }
 }
+*/
 
 /**
 Terrain MapGenerator::decideTerrain(Terrain prevTerrain, int x, int y){

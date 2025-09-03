@@ -6,7 +6,7 @@
 using namespace std;
 
 Province::Province(string nm, int stren, int val, Terrain terr)
-    : name(nm), colonised(false), strength(stren), economicVal(val), terrain(terr),
+    : name(nm), colonised(false), colonisable(terr==Terrain::Coast), strength(stren), economicVal(val), terrain(terr),
     owner(nullptr), tradeGood(&Goods::goods.at(0)), population(0), income(0){}
 
 Province::Province(string nm, int stren, int val, Terrain terr, int fixedGoodID)
@@ -14,21 +14,24 @@ Province::Province(string nm, int stren, int val, Terrain terr, int fixedGoodID)
     owner(nullptr), tradeGood(&Goods::goods.at(fixedGoodID)), population(0), income(0){}
 
 void Province::coloniseProvince(Company* coloniser){
-    population = 100;
-    if(tradeGood == &Goods::goods.at(0)){
-        auto potentialGoods = TerrainGoods::getPotentialGoods(terrain);
-        if (!potentialGoods.empty()) {
-            int randomIndex = rand() % potentialGoods.size();
-            int goodId = potentialGoods[randomIndex];
-            tradeGood = &Goods::goods.at(goodId);
-        } else {
-            std::cerr << "No potential goods for terrain in province "
-                      << name << std::endl;
-            tradeGood = &Goods::goods.at(0); // fallback "None"
+    if(colonisable==true){
+        population = 100;
+        if(tradeGood == &Goods::goods.at(0)){
+            auto potentialGoods = TerrainGoods::getPotentialGoods(terrain);
+            if (!potentialGoods.empty()) {
+                int randomIndex = rand() % potentialGoods.size();
+                int goodId = potentialGoods[randomIndex];
+                tradeGood = &Goods::goods.at(goodId);
+            } else {
+                std::cerr << "No potential goods for terrain in province "
+                        << name << std::endl;
+                tradeGood = &Goods::goods.at(0); // fallback "None"
+            }
         }
-    }
-    owner = coloniser;
-    colonised = true;
+        owner = coloniser;
+        colonised = true;
+        colonisable = false;
+    } else { cout << "Province currently uncolonisable! \n";}
 }
 
 void Province::displayInfo(){ //displays basic information about the province, which changes when it is colonised
@@ -58,6 +61,10 @@ Company* Province::getOwner(){ //getter for province owner (returns Company*)
 
 bool Province::isColonised(){ //getter for wether province is colonised (returns bool - true if it is owned)
     return colonised;
+}
+
+bool Province::isColonisable(){ //getter for wether province is colonisable (returns bool - true if it is colonisable)
+    return colonisable;
 }
 
 int Province::getStrength(){ //getter for province's strength (returns int)
