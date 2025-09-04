@@ -3,14 +3,14 @@
 
 using namespace std;
 
-Game::Game(string playerName){
+Game::Game(string playerName){ //Game constructor, taking in the player's company's name as a string
     turn=1;
-    provinces = std::move(MapGenerator::generate(60, 20));
-    companies.push_back(std::make_unique<Company>(playerName));
-    playerCompany = companies[0].get(); 
+    provinces = std::move(MapGenerator::generate(60, 20)); //generate the 2D vector of provinces
+    companies.push_back(std::make_unique<Company>(playerName)); //add the player's company to companies
+    playerCompany = companies[0].get(); //set the player company as a special var for readability
 }
 
-void Game::run(){
+void Game::run(){ //main game loop
     cout<<"Welcome to Coloniser!\n";
     while(true){
         cout<< "=|=|=|=|= Turn:" << turn << " =|=|=|=|=\n";
@@ -37,7 +37,7 @@ void Game::run(){
                 break;
             case 6:
                 handleColonisation();
-                turnUpdate();
+                turnUpdate(); //colonising currently ends the turn - may change later
                 break;
             case 7:
                 turnUpdate();
@@ -51,7 +51,7 @@ void Game::run(){
     }
 }
 
-void Game::displayMenu(){
+void Game::displayMenu(){ //displays the game menu
     cout << "What would you like to do?\n";
     cout << "1. Show company statuses;\n";
     cout << "2. Show our provinces;\n";
@@ -64,7 +64,7 @@ void Game::displayMenu(){
     cout << "Choice: ";
 }
 
-void Game::showColonisableProvinces(){
+void Game::showColonisableProvinces(){ //shows the provinces which are currently colonisable for the player
     cout << "Colonisable provinces:\n";
     for (int provY = 0; provY < provinces.size(); ++provY){
         for (int provX = 0; provX < provinces[provY].size(); ++provX){
@@ -76,7 +76,7 @@ void Game::showColonisableProvinces(){
     }
 }
 
-void Game::showAllProvinces(){
+void Game::showAllProvinces(){ //shows all provinces (REALLY LONG LIST - NOT OVERLY USEFUL)
     cout << "All provinces:\n";
     for (int provY = 0; provY < provinces.size(); ++provY){
         for (int provX = 0; provX < provinces[provY].size(); ++provX){
@@ -86,7 +86,7 @@ void Game::showAllProvinces(){
     }
 }
 
-void Game::showOurProvinces(){
+void Game::showOurProvinces(){ //shows all of the player company's provinces
     cout << "Our provinces:\n";
     std::vector<Province*> ownedProvinces = playerCompany->getOwnedProvinces();
     for (int p=0; p<ownedProvinces.size(); p++){
@@ -94,7 +94,7 @@ void Game::showOurProvinces(){
     }
 }
 
-void Game::showMap(){
+void Game::showMap(){ //shows the game map using symbols for each terrain, and using a company's name where a company owns a province (should be a char instead of the whole string)
     for(int y=0; y<provinces.size(); ++y){
         for(int x=0; x<provinces[y].size(); ++x){
             Company* owner = provinces[y][x]->getOwner();
@@ -110,31 +110,31 @@ void Game::showMap(){
     }
 }
 
-void Game::handleColonisation(){
+void Game::handleColonisation(){ //handles colonisation input
     cout << "Enter the y of the province to colonise: ";
     int y;
     cin >> y;
-    if (y < 1 || y > provinces.size()){
+    if (y < 1 || y > provinces.size()){ //if province isnt in the list
         cout << "Invalid province selection.\n";
         return;
     }
     cout << "Enter the x of the province to colonise: ";
     int x;
     cin >> x;
-    if (x < 1 || x > provinces[y].size()){
+    if (x < 1 || x > provinces[y].size()){ //if province isnt in the list
         cout << "Invalid province selection.\n";
         return;
     }
-    if(provinces[y][x]->isColonisable()){ 
+    if(provinces[y][x]->isColonisable()){  //if this province has the bool colonisable set to true
         if(playerCompany->attemptColonise(*provinces[y][x])){
-            std::vector<std::pair<int,int>> directions = {
+            std::vector<std::pair<int,int>> directions = { //vector of pairs for each cardinal direction
                 {0, -1}, // north
                 {0,  1}, // south
                 {-1, 0}, // west
                 {1,  0}  // east
             };
-            for(int d = 0; d<directions.size(); d++){
-                std::pair<int,int> currDirection = directions.at(d);
+            for(int d = 0; d<directions.size(); d++){ //for the directions
+                std::pair<int,int> currDirection = directions.at(d); //the current direction being looked at
                 int ny = currDirection.second + y;
                 int nx = currDirection.first + x;
                 if(ny>=0 && ny<provinces.size() && nx>=0 && nx<provinces[ny].size()){
@@ -161,7 +161,7 @@ void Game::handleColonisation(){
     }
 }
 
-void Game::turnUpdate(){
+void Game::turnUpdate(){ //ends the game turn, updates all the companies
     cout<< "Ending turn...\n";
     turn++;
     for (auto& company : companies){

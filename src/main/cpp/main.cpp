@@ -10,15 +10,15 @@
 
 using namespace std;
 
-// Entry point
+//main - starting point for program
 int main() {
-    std::srand(static_cast<unsigned>(std::time(nullptr))); // seed randomness
+    std::srand(static_cast<unsigned>(std::time(nullptr))); // seed for random
 
-    string name;
+    string name; //player name
     cout << "Enter your company name: ";
     getline(cin, name);
 
-    Game game(name);
+    Game game(name); //construct then run game
     game.run();
 
     return 0;

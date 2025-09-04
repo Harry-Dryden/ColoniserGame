@@ -1,6 +1,13 @@
 #ifndef TERRAINDETERMINER_H
 #define TERRAINDETERMINER_H
 
+/**
+ * Created by Harry on 03/09/25
+ * contains TerrainKey struct (made up of two Terrains - left and above),
+ * the TerrainKeyHash struct, which hashes the Terrain left and Terrain above from TerrainKey using XOR (to be commutative),
+ * and the unordered_map of TerrainKeys and their respective possible terrains and each's chance as in int (which acts as a % chance)
+ */
+
 #include "Terrain.h"
 #include <unordered_map>
 #include <vector>
@@ -23,7 +30,8 @@ struct TerrainKeyHash{
     }
 };
 
-std::unordered_map<TerrainKey, std::vector<std::pair<Terrain, int>>, TerrainKeyHash> const terrainRulesMap = {
+//IMPORTANT NOTE - MAPGENERATOR DEFINES THE DEFAULT AS SEA. IF RANDOM SEA TILES ARE APPEARING, AN UNPLANNED COMBINATION OF TERRAINS (without a terrain key in the hasmap) IS OCCURING, and the hashmap should be updated.
+std::unordered_map<TerrainKey, std::vector<std::pair<Terrain, int>>, TerrainKeyHash> const terrainRulesMap = { 
     {TerrainKey{Terrain::Sea, Terrain::Sea}, {{Terrain::Sea, 88}, {Terrain::Island, 10}, {Terrain::Coast, 2} } },
     {TerrainKey{Terrain::Sea, Terrain::Coast}, {{Terrain::Coast, 85}, {Terrain::Sea, 15} } },
     {TerrainKey{Terrain::Sea, Terrain::Island}, {{Terrain::Sea, 85}, {Terrain::Island, 15} } },

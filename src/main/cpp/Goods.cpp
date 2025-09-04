@@ -1,7 +1,7 @@
 #include "Goods.h"
 
 namespace Goods{
-    std::vector<Good> goods = {
+    std::vector<Good> goods = { //Vector of Goods
         Good("None",0,0), //ID =0 (Keep this way for province constructor)
         Good("Grain",1,40), //ID =1
         Good("Fish",1,30), //ID =2

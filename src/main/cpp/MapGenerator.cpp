@@ -3,32 +3,31 @@
 #include <iostream>
 
 
-std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int width, int height){
-    std::vector<std::vector<std::unique_ptr<Province>>> grid(
-    height);
+std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int width, int height){ //generate the map which is a vector of vector of unqiue pointers to provinces. takes in the desired int width and int height of the map
+    std::vector<std::vector<std::unique_ptr<Province>>> grid(height);
     for(int y=0; y<height; ++y){
-        grid[y].resize(width);
+        grid[y].resize(width);//resize the current y level according to the width
         for(int x=0; x<width; ++x){
-            std::string provName = "Province_" + std::to_string(y) + "_" + std::to_string(x);
-            Terrain prevTerrainX;
-            Terrain prevTerrainY;
-            Terrain newTerrain;
-            if(x==0||y==0){newTerrain=Terrain::Sea;} else {
+            std::string provName = "Province_" + std::to_string(y) + "_" + std::to_string(x); //create province name based on the Y and the X - wants changing later to more realistic names
+            Terrain prevTerrainX; //the previous terrain to the left
+            Terrain prevTerrainY; //the previous terrain above
+            Terrain newTerrain; //the terrain for this province
+            if(x==0||y==0){newTerrain=Terrain::Sea;} else { 
                 if(x>0){prevTerrainX = grid[y][x-1]->getTerrain();
                 } else {prevTerrainX = Terrain::Sea;}
                 if(y>0){prevTerrainY = grid[y-1][x]->getTerrain();
                 } else {prevTerrainY = Terrain::Sea;}
-                TerrainKey previousTerrains{prevTerrainX, prevTerrainY};
-                auto mapIterator = terrainRulesMap.find(previousTerrains);
-                if( mapIterator != terrainRulesMap.end()) {
-                    auto& terrainWeightVector = mapIterator->second;
+                TerrainKey previousTerrains{prevTerrainX, prevTerrainY}; //create a TerrainKey for the hash
+                auto mapIterator = terrainRulesMap.find(previousTerrains); //use the TerrainKey and the unordered map of terrain possibilites to find the suitable terrains
+                if( mapIterator != terrainRulesMap.end()) { //if the mapIterator is a suitable set of terrains
+                    auto& terrainWeightVector = mapIterator->second; //get the second part of the mapIterator, which is the possible terrains for this combination
                     int possibiltyRoll = (rand() % 100)+1;
                     int runningSum =0;
-                    for (int possibleTerrains=0; possibleTerrains<terrainWeightVector.size(); possibleTerrains++){
+                    for (int possibleTerrains=0; possibleTerrains<terrainWeightVector.size(); possibleTerrains++){ //go through the vector of possible terrains until the possibiltyRoll lands in the runningSum
                         std::pair<Terrain,int> currPair = terrainWeightVector[possibleTerrains];
                         runningSum+= currPair.second;
                         if(runningSum>=possibiltyRoll){
-                            newTerrain = currPair.first;
+                            newTerrain = currPair.first; //set the new terrain to the selected terrain
                             break;
                         }
                     }
@@ -46,8 +45,8 @@ std::vector<std::vector<std::unique_ptr<Province>>> MapGenerator::generate(int w
             else if (r<90) terrain = Terrain::Hills; //15%
             else if (r<100) terrain = Terrain::Mountains; //10%
             **/
-            int strength = 80;
-            int value = 1;
+            int strength = 80; //default strength - need to change depending on terrain
+            int value = 1; //default value - same as above
             grid[y][x] = std::make_unique<Province>(provName, strength, value, newTerrain);
         }
     }

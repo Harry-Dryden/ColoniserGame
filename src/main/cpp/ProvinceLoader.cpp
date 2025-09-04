@@ -3,6 +3,7 @@
 #include "ProvinceLoader.h"
 #include "Goods.h"
 
+//Old province loader - keep for sake of ideas in the future
 std::vector<std::unique_ptr<Province>> ProvinceLoader::loadInitialProvinces(){
     std::vector<std::unique_ptr<Province>> provinces;
     provinces.push_back(std::make_unique<Province>("Green Cove", 10, 20, Terrain::Coast));
